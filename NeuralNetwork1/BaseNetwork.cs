@@ -13,7 +13,6 @@ namespace NeuralNetwork1
     {
         //  Делегат для информирования о процессе обучения (периодически извещает форму о том, сколько процентов работы сделано)
         public FormUpdater updateDelegate = null;
-        public double LastAccuracy = 0;
 
         public abstract void ReInit(int[] structure, double initialLearningRate = 0.25);
 

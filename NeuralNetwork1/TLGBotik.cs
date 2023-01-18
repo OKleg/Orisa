@@ -4,57 +4,38 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks; 
+using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
-using System.Drawing;
 
 
 namespace NeuralNetwork1
 {
     class TLGBotik
-    {
-        public List<string> PossibleAnswers = new List<string>
-        {
-            "Я думаю, что это {0}. Надеюсь, угадал",
-            "Мне кажется, что это {0}. Рисуешь ты, конечно...\n\n\n\n...классно",
-            "Наверное, это {0}. Ну, по крайней мере, я так думаю",
-            "Смотри, планет много, а я один, так что не принимай на веру: вроде, это {0}",
-            "Ага, ну это {0}. По идее.",
-            "Хм... Не просто. {0}, да?",
-            "{0}. Должно быть, так",
-            "Мои нейроны, конечно, пропотели, пока считали это, но, вроде, результат есть. Это {0}",
-            "Секунду, монетку подброшу и скажу...\n\nДа шучу я! Монетки бросают только дилетанты. У нас кубик...\n\nВ общем, это {0}. Надеюсь, не ошибся",
-            "По идее, {0}",
-            "Это {0}",
-            "Вроде как, {0}",
-            "Пам-пам-пам... {0}?",
-            "Полагаю, что {0}"
-        };
-
-        public Telegram.Bot.TelegramBotClient botik = null;
+    {   
         public AIMLBotik AIMLbot = null;
-        public Random random = new Random();
-
+        public Telegram.Bot.TelegramBotClient botik = null;
+        
+         
         private UpdateTLGMessages formUpdater;
-        private UpdateImageData dataUpdater;
+        //...
+
 
         private BaseNetwork perseptron = null;
         // CancellationToken - инструмент для отмены задач, запущенных в отдельном потоке
         private readonly CancellationTokenSource cts = new CancellationTokenSource();
-        public TLGBotik(BaseNetwork net, UpdateTLGMessages updater, UpdateImageData data_updater)
-        { 
-            var botKey = System.IO.File.ReadAllText("botkey.txt");
+        public TLGBotik(BaseNetwork net,  UpdateTLGMessages updater)
+        {
             AIMLbot = new AIMLBotik();
+            var botKey = System.IO.File.ReadAllText("botkey.txt");
             botik = new Telegram.Bot.TelegramBotClient(botKey);
             formUpdater = updater;
-            dataUpdater = data_updater;
             perseptron = net;
         }
-
+        public Random random = new Random();
         public void SetNet(BaseNetwork net)
         {
             perseptron = net;
@@ -63,6 +44,7 @@ namespace NeuralNetwork1
 
         private async Task HandleUpdateMessageAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
+            //  Тут очень простое дело - банально отправляем назад сообщения
             var message = update.Message;
             formUpdater("Тип сообщения : " + message.Type.ToString());
             string chat_id = message.Chat.Id.ToString();
@@ -71,15 +53,17 @@ namespace NeuralNetwork1
                 var name = message.Chat.FirstName;
                 AIMLbot.AddUser(chat_id, name);
                 AIMLbot.Dump();
-                var answer = AIMLbot.Talk(chat_id, $"Я НОВЕНЬКИЙ {name}");
+                var answer = AIMLbot.Talk(chat_id, $"СТАРТ {name}");
                 botik.SendTextMessageAsync(message.Chat.Id, answer);
                 return;
             }
             var user = AIMLbot.Users[chat_id];
             AIMLbot.Talk(user.Id, $"ОБНОВЛЕНИЕ ИМЕНИ {user.Name}");
-            AIMLbot.Talk(user.Id, $"ОБНОВЛЕНИЕ ФИГУРЫ {Info.figureToStr[user.LastFigure]}");
 
-            if (message.Type == MessageType.Photo)
+            formUpdater("Тип сообщения : " + message.Type.ToString());
+
+                //  Получение файла (картинки)
+                if (message.Type == Telegram.Bot.Types.Enums.MessageType.Photo)
             {
                 formUpdater("Picture loadining started");
                 var photoId = message.Photo.Last().FileId;
@@ -87,32 +71,40 @@ namespace NeuralNetwork1
                 var imageStream = new MemoryStream();
                 await botik.DownloadFileAsync(fl.FilePath, imageStream, cancellationToken: cancellationToken);
                 var img = System.Drawing.Image.FromStream(imageStream);
+                
                 System.Drawing.Bitmap bm = new System.Drawing.Bitmap(img);
-                var size = new System.Drawing.Size(Info.Width, Info.Height);
-                var cropped = ImageEditor.CropToSquare(bm);
-                var bw = ImageEditor.RGBtoBW(cropped);
-                var resized = ImageEditor.SmoothResize(bw, size);
-                var sharpened = ImageEditor.SharpenBW(resized, 220);
-                var normalized = ImageEditor.NormalizeByMassCenter(sharpened, size);
-                var sharpened_normalized = ImageEditor.SharpenBW(normalized, 210);
-                var sample = new Sample(ImageEditor.GetArray(sharpened_normalized), Info.ClassesNum);
-                var fig = perseptron.Predict(sample);
-                dataUpdater(sharpened_normalized, cropped, String.Format("{0} ({1:0.00}%)", Info.figureToStr[fig], perseptron.LastAccuracy * 100));
-                user.LastFigure = fig;
-                AIMLbot.Dump();
-                string full_answer = String.Format(PossibleAnswers[random.Next(0, PossibleAnswers.Count)], Info.figureToStr[fig]);
-                botik.SendTextMessageAsync(message.Chat.Id, full_answer);
+
+                //  Масштабируем aforge
+                AForge.Imaging.Filters.ResizeBilinear scaleFilter = new AForge.Imaging.Filters.ResizeBilinear(200,200);
+                var uProcessed = scaleFilter.Apply(AForge.Imaging.UnmanagedImage.FromManagedImage(bm));
+               
+                Sample sample = GenerateImage.GenerateFigure(uProcessed);
+               var fig = perseptron.Predict(sample);
+                switch(fig)
+                {
+                    case FigureType.Rectangle: botik.SendTextMessageAsync(message.Chat.Id, "Это легко, это был прямоугольник!");break;
+                    case FigureType.Circle: botik.SendTextMessageAsync(message.Chat.Id, "Это легко, кружочек!"); break;
+                    case FigureType.Sinusiod: botik.SendTextMessageAsync(message.Chat.Id, "Синусоида!"); break;
+                    case FigureType.Triangle: botik.SendTextMessageAsync(message.Chat.Id, "Это легко, это был треугольник!"); break;
+                    default: botik.SendTextMessageAsync(message.Chat.Id, "Я такого не знаю!"); break;
+                }
+
+                formUpdater("Picture recognized!");
                 return;
             }
 
+           
             if (message.Type == MessageType.Text)
             {
+                formUpdater( user.Name+": "+ message.Text);
                 var answer = AIMLbot.Talk(user.Id, message.Text);
                 botik.SendTextMessageAsync(long.Parse(user.Id), answer);
                 return;
             }
-
-            botik.SendTextMessageAsync(long.Parse(user.Id), "Ох, что-то сложное ты прислал... Я понимаю только букавки и фотачки. Можно их?");
+            if (message == null || message.Type != MessageType.Text) return;
+            
+            botik.SendTextMessageAsync(message.Chat.Id, "Bot reply : " + message.Text);
+            formUpdater(message.Text);
             return;
         }
         Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)

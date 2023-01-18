@@ -60,9 +60,8 @@ namespace NeuralNetwork1
         /// <summary>
         /// Обработка реакции сети на данный образ на основе вектора выходов сети
         /// </summary>
-        public double processOutput()
+        public void processOutput()
         {
-            double max_value = output[0];
             if (error == null)
                 error = new double[output.Length];
             
@@ -71,13 +70,8 @@ namespace NeuralNetwork1
             for(int i = 0; i < output.Length; ++i)
             {
                 error[i] = ((i == (int) actualClass ? 1 : 0) - output[i]);
-                if (output[i] > output[(int)recognizedClass])
-                {
-                    recognizedClass = (FigureType)i;
-                    max_value = output[i];
-                }
+                if (output[i] > output[(int)recognizedClass]) recognizedClass = (FigureType)i;
             }
-            return max_value;
         }
 
         /// <summary>

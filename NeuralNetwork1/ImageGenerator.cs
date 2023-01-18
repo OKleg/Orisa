@@ -10,11 +10,8 @@ namespace NeuralNetwork1
     /// <summary>
     /// Тип фигуры
     /// </summary>
-    //public enum FigureType : byte { Triangle = 0, Rectangle, Circle, Sinusiod, Undef };
-    public enum FigureType : byte { Earth = 0, Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, Undef };
-
-    /*
-
+    public enum FigureType : byte { Triangle = 0, Rectangle, Circle, Sinusiod, Undef };
+    
     public class GenerateImage
     {
         /// <summary>
@@ -278,6 +275,5 @@ namespace NeuralNetwork1
             return DrawArea;
         }
     }
-    */
 
 }

@@ -122,7 +122,7 @@ namespace NeuralNetwork1
         public override FigureType Predict(Sample sample)
         {
             sample.output = network.Compute(sample.input);
-            LastAccuracy = sample.processOutput();
+            sample.processOutput();
             return sample.recognizedClass;
         }
 
