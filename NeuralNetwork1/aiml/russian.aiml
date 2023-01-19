@@ -212,6 +212,12 @@
     </template>
   </category>
   <category>
+    <pattern>СИШАРП</pattern>
+    <template>
+      <srai>C Sharp</srai>
+    </template>
+  </category>
+  <category>
     <pattern>C HASH</pattern>
     <template>
       <srai>C Sharp</srai>
@@ -228,7 +234,12 @@
       </random>
     </template>
   </category>
-  
+  <category>
+    <pattern>ПРИМЕР СИШАРП</pattern>
+    <template>
+      <srai>ПРИМЕР CSHARP</srai>
+    </template>
+  </category>
   <category>
 	<pattern>ФАКТЫ CSharp</pattern>
 	<template>
@@ -250,7 +261,7 @@
 <category>
 	<pattern>ФАКТЫ О СИШАРПЕ</pattern>
 	<template>
-		<srai>ФАКТЫ CSharp</srai>
+		<srai>ФАКТЫ CSHARP</srai>
 	</template>
 </category>
 
@@ -258,25 +269,587 @@
 <category>
 	<pattern>ФАКТЫ СИШАРП</pattern>
 	<template>
-		<srai>ФАКТЫ CSharp</srai>
+		<srai>ФАКТЫ CSHARP</srai>
 	</template>
 </category>
 
 <category>
 	<pattern>ФАКТЫ C#</pattern>
 	<template>
-		<srai>ФАКТЫ CSharp</srai>
+		<srai>ФАКТЫ CSHARP</srai>
 	</template>
 </category>
 
-  <category>
-    <pattern>ФАКТЫ О C#</pattern>
+<!-- C++ -->
+<category>
+    <pattern>СИПЛЮСПЛЮС</pattern>
     <template>
-      <srai>ФАКТЫ CSharp</srai>
+        C++ (читается си-плюс-плюс) — компилируемый, статически типизированный язык программирования общего назначения.
+      Поддерживает такие парадигмы программирования, как процедурное программирование,
+      объектно-ориентированное программирование, обобщённое программирование.
+      Язык имеет богатую стандартную библиотеку, которая включает в себя распространённые контейнеры и алгоритмы,
+      ввод-вывод, регулярные выражения, поддержку многопоточности и другие возможности.
+
+        Широко используется для разработки программного обеспечения,
+      являясь одним из самых популярных языков программирования.
+      Область его применения включает создание операционных систем,
+      разнообразных прикладных программ, драйверов устройств, приложений для встраиваемых систем,
+      высокопроизводительных серверов, а также компьютерных игр.
+    </template>
+</category>
+  <category>
+    <pattern>СИ-ПЛЮС-ПЛЮС</pattern>
+    <template>
+      <srai>СИПЛЮСПЛЮС</srai>
     </template>
   </category>
-<category>
-<!-- ВОПРОСЫ О  -->
+    <category>
+      <pattern>СИ ПЛЮС ПЛЮС</pattern>
+      <template>
+        <srai>СИПЛЮСПЛЮС</srai>
+      </template>
+    </category>
+    <category>
+    <pattern>КРЕСТЫ</pattern>
+    <template>
+      <srai>СИПЛЮСПЛЮС</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>C++</pattern>
+    <template>
+      <srai>СИПЛЮСПЛЮС</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>CPLUSPLUS</pattern>
+    <template>
+      <srai>СИПЛЮСПЛЮС</srai>
+    </template>
+  </category>
+  <category>
+		<pattern>C PLUS PLUS</pattern>
+		<template>
+			<srai>СИПЛЮСПЛЮС</srai>
+		</template>
+  </category>
+  <category>
+  <pattern>ФАКТЫ СИПЛЮСПЛЮС</pattern>
+  <template>
+    <random>
+      <li>Название C++ указывает на эволюционный характер изменений по сравнению с C. “++” - это оператор увеличения C. </li>
+      <li>C ++ является одним из преобладающих языков для разработки всех видов технического и коммерческого программного обеспечения.</li>
+      <li>C ++ представляет объектно-ориентированное программирование, отсутствующее в C. Как и другие вещи, C ++ поддерживает четыре основные функции ООП: инкапсуляцию, полиморфизм, абстракцию и наследование.</li>
+      <li>Язык C# содержит самый высокий класс, который поддерживает дженерики и шаблоны.</li>
+      <li>Функция - это минимальное требование для запуска программы на C ++.</li>
+      <li>Многие языки программирования находятся под влиянием c ++, некоторые из которых включают C #, Java и даже более новые версии C.</li>
+    </random>
+  </template>
+  </category>
+
+
+  <category>
+    <pattern>ФАКТЫ C++</pattern>
+    <template>
+      <srai>ФАКТЫ СИПЛЮСПЛЮС</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ СИ-ПЛЮС-ПЛЮС</pattern>
+    <template>
+      <srai>ФАКТЫ СИПЛЮСПЛЮС</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ФАКТЫ С PLUS PLUS</pattern>
+    <template>
+      <srai>ФАКТЫ СИПЛЮСПЛЮС</srai>
+    </template>
+  </category>
+
+  <!-- ПИТОН -->
+  <category>
+    <pattern>ПИТОН</pattern>
+    <template>
+      Python (в русском языке встречаются названия пито́н[23] или па́йтон[24])
+      —  Высокоуровневый язык программирования общего назначения с динамической строгой типизацией
+      и автоматическим управлением памятью, ориентированный на повышение производительности разработчика,
+      читаемости кода и его качества, а также на обеспечение переносимости написанных на нём программ.
+      Язык является полностью объектно-ориентированным в том плане, что всё является объектами.
+      Необычной особенностью языка является выделение блоков кода пробельными отступами.
+      Синтаксис ядра языка минималистичен,
+      за счёт чего на практике редко возникает необходимость обращаться к документации.
+      Сам же язык известен как интерпретируемый и используется в том числе для написания скриптов.
+    </template>
+  </category>
+  <category>
+    <pattern>ПАЙТОН</pattern>
+    <template>
+      <srai>ПИТОН</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ПУТХОН</pattern>
+    <template>
+      <srai>ПИТОН</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>PYTHON</pattern>
+    <template>
+      <srai>ПИТОН</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ЗМЕЙКИ</pattern>
+    <template>
+      <li>Я знаю только таких змей</li>
+      <srai>ПИТОН</srai>
+    </template>
+  </category>
+  <category>
+    <li>Я знаю только такую змею</li>
+    <pattern>ЗМЕЯ</pattern>
+    <template>
+      <srai>ПИТОН</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ФАКТЫ ПИТОН</pattern>
+    <template>
+      <random>
+        <li>Наверное не всем известно, что свое название язык получил не в честь змеи.
+        Создатель языка, Гвидо ван Россум, был поклонником Британского комедийного шоу «Летающий цирк Монти Пайтона». Вот и в честь «Монти Пайтона (Monty Python)» язык назвался Python.
+        А теперь немного фантазий: а если бы Гвидо назвал язык «Monty Python»? :)</li>
+        <li>
+          Python используется в марсоходе, созданном NASA. 
+          Библиотеки Python используются для записи, обработки изображений и видео.
+        </li>
+        <li>
+          В Великобритании согласно проведенному опросу в 2015 году, 
+          язык программирования Python опередил французский
+          и оказался более востребованным языком изучаемым в начальных школах Англии.
+          60% родителей хотели бы, чтобы их дети обучались программированию на Python, а не французскому языку. 
+        </li> 
+      </random>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ О ПИТОНЕ</pattern>
+    <template>
+      <srai>ФАКТЫ ПИТОН</srai>
+    </template>
+  </category> 
+    <category>
+      <pattern>ФАКТЫ О ПАЙТОНЕ</pattern>
+      <template>
+        <srai>ФАКТЫ ПИТОН</srai>
+      </template>
+    </category>
+  <category>
+    <pattern>ФАКТЫ ПАЙТОН</pattern>
+    <template>
+      <srai>ФАКТЫ ПИТОН</srai>
+    </template>
+  </category>
+    <category>
+    <pattern>ФАКТЫ PYTHON</pattern>
+    <template>
+      <srai>ФАКТЫ ПИТОН</srai>
+    </template>
+  </category>
+
+  <!-- РУБИ -->
+  <category>
+    <pattern>РУБИ</pattern>
+    <template>
+      Ruby — Динамический, рефлективный, интерпретируемый высокоуровневый язык программирования.
+      Язык обладает независимой от операционной системы реализацией многопоточности,
+      сильной динамической типизацией, сборщиком мусора и многими другими возможностями.
+      По особенностям синтаксиса он близок к языкам Perl и Eiffel,
+      по объектно-ориентированному подходу - к Smalltalk.
+      Также некоторые черты языка взяты из Python, Lisp, Dylan и Клу.
+      Кроссплатформенная реализация интерпретатора языка является полностью свободной.
+
+      Это тщательно сбалансированный язык.
+      Его создатель Юкихиро Мацумото (также известный как “Matz”),
+      объединил части его любимых языков чтобы сформировать новый язык,
+      в котором парадигма функционального программирования сбалансирована
+      принципами императивного программирования.	
+    </template>
+  </category>
+  <category>
+    <pattern>РУБИН</pattern>
+    <template>
+      <srai>РУБИ</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>RUBY</pattern>
+    <template>
+      <srai>РУБИ</srai>
+    </template>
+  </category> 
+
+  <category>
+    <pattern>ФАКТЫ РУБИ</pattern>
+    <template>
+      <random>
+        <li>  Всё в Ruby – объекты. </li>
+        <li>Название Ruby для языка возникло в онлайн-чате между Мацумото и Кейдзу Ишицука 24 февраля 1993 года, еще до того, как на этом языке был написан какой-либо код. Первоначально были предложены два названия: коралл или рубин. Имя Руби было позже выбрано Мацумото в электронном письме Ишицуке.</li>
+        <li>Ruby часто путают с Ruby on Rails, который является серверной средой, написанной на Ruby по лицензии MIT для реализации веб-приложений.</li>
+        <li>Ruby позволяет встраивать код. Например, Ruby может быть встроен в язык гипертекстовой разметки (HTML).</li>
+      </random>
+    </template>
+  </category>
+  
+ 
+  <category>
+    <pattern>ФАКТЫ RUBY</pattern>
+    <template>
+      <srai>ФАКТЫ РУБИ</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ РУБИН</pattern>
+    <template>
+      <srai>ФАКТЫ РУБИ</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ РУБИНЕ</pattern>
+    <template>
+      <srai>ФАКТЫ РУБИ</srai>
+    </template>
+  </category>
+  <!-- JS -->
+  <category>
+    <pattern>JS</pattern>
+    <template>
+      JS — Мультипарадигменный язык программирования.
+      Поддерживает объектно-ориентированный, императивный и функциональный стили.
+      Является реализацией спецификации ECMAScript.
+      JavaScript обычно используется как встраиваемый язык для программного доступа к объектам приложений.
+      Наиболее широкое применение находит в браузерах как язык сценариев для придания интерактивности веб-страницам
+      Основные архитектурные черты: динамическая типизация, слабая типизация, автоматическое управление памятью,
+      прототипное программирование, функции как объекты первого класса.
+      
+    </template>
+  </category>
+  
+  <category>
+    <pattern>ЖС</pattern>
+    <template>
+      <srai>JS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ДЖАВАСКРИПТ</pattern>
+    <template>
+      <srai>JS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ДЖАВА СКРИПТ</pattern>
+    <template>
+      <srai>JS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>JAVA SCRIPT</pattern>
+    <template>
+      <srai>JS</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ФАКТЫ JS</pattern>
+    <template>
+      <random>
+        <li>JavaScript является однопоточным. </li>
+        <li>Несмотря на то, что между JavaScript и Java есть сходства, включая название языка, соответствующие стандартные библиотеки и синтаксис, эти два языка различны и значительно отличаются по дизайну.</li>
+        <li>Как и все другие языки сценариев, массивы и объекты могут быть созданы с помощью краткого синтаксиса быстрого доступа. Эти литералы структурируют основу формата данных JSON.</li>
+        <li>Наряду с HTML и CSS, JavaScript является одним из трех основных элементов www</li>
+      </random>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ ЖС</pattern>
+    <template>
+      <srai>ФАКТЫ JS</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ФАКТЫ ДЖАВАСКРИПТ</pattern>
+    <template>
+      <srai>ФАКТЫ JS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ ДЖАВА СКРИПТ</pattern>
+    <template>
+      <srai>ФАКТЫ JS</srai>
+    </template>
+  </category>
+ 
+  <category>
+    <pattern>ФАКТЫ JAVA SCRIPT</pattern>
+    <template>
+      <srai>ФАКТЫ JS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ ЖАВА СКРИПТ</pattern>
+    <template>
+      <srai>ФАКТЫ JS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ ЯВА СКРИПТ</pattern>
+    <template>
+      <srai>ФАКТЫ JS</srai>
+    </template>
+  </category>
+  <!-- JAVA -->
+  <category>
+    <pattern>JAVA</pattern>
+    <template>
+      Java представляет собой cтрого типизированный объектно-ориентированный  язык программирования
+      и платформу вычислений, которая была впервые выпущена компанией Sun Microsystems в 1995 г.
+      Технология эволюционировала из скромной разработки до инструмента,
+      который играет серьезную роль в современном цифровом мире,
+      предоставляя надежную платформу для множества сервисов и приложений.
+      Инновационные продукты и цифровые услуги, разрабатываемые для будущего,
+      также будут создаваться на основе Java.
+    </template>
+  </category>
+
+  <category>
+    <pattern>ЯВА</pattern>
+    <template>
+      <srai>JAVA</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ДЖАВА</pattern>
+    <template>
+      <srai>JAVA</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ЖАВА</pattern>
+    <template>
+      <srai>JAVA</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>КОФЕ</pattern>
+    <template>
+      <srai>JAVA</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ФАКТЫ JAVA</pattern>
+    <template>
+      <random>
+        <li>
+          Язык разрабатывался Джеймсом Гослингом (James Gosling) и первоначально был назван Oak в честь дуба, который рос около офиса Гослинга. Впоследствии язык был переименован сначала в Green, а позднее — в Java, и стал использоваться для написания клиентских приложений и серверного программного обеспечения.
+          Свое последнее название язык получил в честь марки кофе Java, поэтому на официальной эмблеме изображена чашка с испаряющимся кофе.
+        </li>
+        <li>Дюк (Duke), символ Java, был создан Джо Пэлрэнгом (Joe Palrang), который впоследствии работал над популярными анимационными фильмами, такими как Шрэк.</li>
+        <li>Изначально Java создавался для интерактивного ТВ, но индустрия кабельного телевидения была недостаточно развита для того, чтобы использовать его.</li>
+        <li>Сегодня Java рационально работает на более чем 1 миллиарде, поскольку операционная система Android от Google использует Java API.</li>
+      </random>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ ЖАВА</pattern>
+    <template>
+      <srai>ФАКТЫ JAVA</srai>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>ФАКТЫ ДЖАВА</pattern>
+    <template>
+      <srai>ФАКТЫ JAVA</srai>
+    </template>
+  </category>
+ 
+  <category>
+    <pattern>ФАКТЫ ЯВА</pattern>
+    <template>
+      <srai>ФАКТЫ JAVA</srai>
+    </template>
+  </category>
+  <!-- PHP -->
+  <category>
+    <pattern>PHP</pattern>
+    <template>
+      PHP(рекурсивный акроним словосочетания PHP: Hypertext Preprocessor)
+      — C-подобный скриптовый язык общего назначения, интенсивно применяемый для разработки веб-приложений.
+      В настоящее время поддерживается подавляющим большинством хостинг-провайдеров
+      и является одним из лидеров среди языков, применяющихся для создания динамических веб-сайтов.
+		</template>
+  </category>
+
+  <category>
+    <pattern>ПХП</pattern>
+    <template>
+      <srai>PHP</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>СЛОН</pattern>
+    <template>
+      <srai>PHP</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ПШП</pattern>
+    <template>
+      <srai>PHP</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ПИАШПИ</pattern>
+    <template>
+      <srai>PHP</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ФАКТЫ PHP</pattern>
+    <template>
+      <random>
+        <li> Более 244 миллионов сайтов используют PHP </li>
+        <li> Расмус Лердорф не разработал PHP для использования в качестве языка программирования. Он был разработан для управления его личным сайтом. В 1997 году, после нескольких месяцев работы и бета-тестирования, была выпущена официальная версия PHP. </li>
+        <li> Для PHP нет письменных спецификаций или стандартов </li>
+      </random>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ ПХП</pattern>
+    <template>
+      <srai>ФАКТЫ PHP</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ ПШП</pattern>
+    <template>
+      <srai>ФАКТЫ PHP</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ СЛОН</pattern>
+    <template>
+      <srai>ФАКТЫ PHP</srai>
+    </template>
+  </category>
+  <!-- GO -->
+  <category>
+    <pattern>GO</pattern>
+    <template>
+      GO — Компилируемый многопоточный язык программирования,
+      разработанный внутри компании Google. Разработка Go началась в сентябре 2007 года,
+      его непосредственным проектированием занимались Роберт Гризмер, Роб Пайк и Кен Томпсон,
+      занимавшиеся до этого проектом разработки операционной системы Inferno.
+      Официально язык был представлен в ноябре 2009 года.
+      Обновленная эмблема отражает философию победы простоты над сложностью.
+      Линии движения и две закругленные буквы напоминают колеса и гарантируют скорость и эффективность.
+      Также новый логотип похож на глаза талисмана языка — суслика.
+    </template>
+  </category>
+
+  <category>
+    <pattern>ГО</pattern>
+    <template>
+      <srai>GO</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>GOLANG</pattern>
+    <template>
+      <srai>GO</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ГОЛАНГ</pattern>
+    <template>
+      <srai>GO</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ФАКТЫ GO</pattern>
+    <template>
+      <random>
+        <li>Роберт Гриземер, Роб Пайк и Кен Томпсон разработали Go в Google в 2007 году. </li>
+        <li>Go поддерживается практически во всех операционных системах, таких как DragonFly BSD, FreeBSD, Linux, macOS, NetBSD, OpenBSD, Plan 9, Solaris и Windows. </li>
+        <li>Go предоставляет 2 функции, которые способны заменить наследование классов. Первый - это встраивание, а второй - интерфейсы.   </li>
+        <li>   </li>
+      </random>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ ГО</pattern>
+    <template>
+      <srai>ФАКТЫ GO</srai>
+    </template>
+  </category> 
+  <category>
+    <pattern>ФАКТЫ GOLANG</pattern>
+    <template>
+      <srai>ФАКТЫ GO</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ ГОЛАНГ</pattern>	
+    <template>
+      <srai>ФАКТЫ GO</srai>
+    </template>
+  </category>
+
+  <!-- HASKELL -->
+  <category>
+    <pattern>HASKELL</pattern>
+    <template>
+      Haskell  — Стандартизированный чистый функциональный язык программирования общего назначения.
+      Является одним из самых распространённых языков программирования с поддержкой отложенных вычислений.
+      Система типов - полная, сильная, статическая, с автоматическим выводом типов,
+      основанная на системе типов Хиндли - Милнера. Поскольку язык функциональный,
+      то основная управляющая структура - это функция.
+    </template>
+  </category>
+
+  <category>
+    <pattern>ХАСКЕЛЬ</pattern>
+    <template>
+      <srai>HASKELL</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ HASKELL</pattern>
+    <template>
+      <random>
+        <li> Haskell	 был назван в честь одного из основателей комбинаторной логики Хаскела Кaрри (Haskell Curry).</li>
+        <li>Haskell имеет сильную, статическую систему типов, основанную на выводе типа Хиндли–Милнера.</li>
+        <li> В Haskell есть отложенное вычисление, лямбда-выражения, сопоставление с образцом, понимание списка, классы типов и полиморфизм типов.
+					Это чисто функциональный язык, что означает, что функции обычно не имеют побочных эффектов. </li>    
+      </random>
+    </template>
+  </category>
+  <category>
+    <pattern>ФАКТЫ ХАСКЕЛЬ</pattern>
+    <template>
+      <srai>ФАКТЫ HASKELL</srai>
+    </template>
+  </category>
+  <!-- ВОПРОСЫ О  -->
 
 <category>
 	<pattern>РАССКАЖИ О *</pattern>
@@ -463,7 +1036,7 @@
 </category>
 
 <category>
-	<pattern>ЛИКБЕЗ ПО *</pattern>
+	<pattern>ДАВАЙ ПРО *</pattern>
 	<template>
 		<srai>ФАКТЫ <star/></srai>
 	</template>
@@ -597,7 +1170,7 @@
 	</template>
 </category>
 
-<!-- ФАКТЫ ПО РАСПОЗНАННОМУ ОБРАЗУ -->
+<!-- ФАКТЫ ПО РАСПОЗНАННОВАНИЮ -->
 
 <category>
 	<pattern>ЧТО ИНТЕРЕСНОГО</pattern>
@@ -683,17 +1256,17 @@
 	</template>
 </category>
 
-<!-- ПРОСЬБА НАПОМНИТЬ О ТОМ, КАКОЙ ОБРАЗ БЫЛ РАСПОЗНАН ПОСЛЕДНИМ -->
+<!-- ПОМНИТЬ ОБРАЗ КОТОРЫЙ БЫЛ РАСПОЗНАН ПОСЛЕДНИМ -->
 
 <category>
 	<pattern>О ЧЕМ МЫ</pattern>
 	<template>
 		<random>
-			<li>Мы обсуждаем то произведение искусства, что ты мне отправил. Я так понял, это <get name='figureType'/></li>
-			<li>Мы говорим об образе, который ты нарисовал и отправил. Я так понимаю, это <get name='figureType'/></li>
-			<li>По всей видимости, тема нашего обсуждения - <get name='figureType'/>. По идее, ты отправлял это</li>
-			<li>Ага, уже и забыли... У нас вообще-то важный разговор! Ладно, напомню - <get name='figureType'/>. Тот самый рисунок, что ты отправил мне</li>
-			<li>Ну так неитересно... Тебе даже не интересен наш диалог! Еще раз спроси - может быть, и отвечу...</li>
+			<li> Если не ошибаюсь, это <get name='figureType'/></li>
+			<li> Я так понимаю,Мы говорим об <get name='figureType'/></li>
+			<li>Мы обсуждали  <get name='figureType'/>.</li>
+			<li>Напомню - <get name='figureType'/>. Это рисунок, что ты отправил мне.</li>
+			<li>А о чём мы? А, конечно же о <get name='figureType'/>. Хоть я помню.</li>
         </random> 
 	</template>
 </category>
@@ -779,11 +1352,11 @@
 	<pattern>А ЧТО Я ПРИСЫЛАЛ РАНЕЕ</pattern>
 	<template>
 		<random>
-			<li>Ну, мне показалось, что это <get name='figureType'/></li>
+			<li>Это <get name='figureType'/></li>
 			<li>Я думаю, это <get name='figureType'/></li>
-			<li>Напоминаю: ты рисовал какой-то образ. По-моему, это <get name='figureType'/></li>
-			<li>Ну как так, вечно все помнить за тебя... По всей видимости, это <get name='figureType'/></li>
-			<li>Вспоминаю... Ага, вроде ты присылал <get name='figureType'/>. Поправь, если не прав</li>
+			<li> <get name='figureType'/></li>
+			<li>Думаю, это <get name='figureType'/></li>
+			<li>Если не ошибаюсь то это <get name='figureType'/>. Поправь, если не прав</li>
         </random> 
 	</template>
 </category>
@@ -794,14 +1367,24 @@
 		<srai>А ЧТО Я ПРИСЫЛАЛ РАНЕЕ</srai>
 	</template>
 </category>
-
+  <category>
+    <pattern>А ЧТО Я ПРИСЫЛАЛА РАНЕЕ?</pattern>
+    <template>
+      <srai>А ЧТО Я ПРИСЫЛАЛ РАНЕЕ</srai>
+    </template>
+  </category>
 <category>
 	<pattern>ЧТО Я ПРИСЫЛАЛ</pattern>
 	<template>
 		<srai>А ЧТО Я ПРИСЫЛАЛ РАНЕЕ</srai>
 	</template>
 </category>
-
+  <category>
+    <pattern>ЧТО Я ПРИСЫЛАЛА</pattern>
+    <template>
+      <srai>А ЧТО Я ПРИСЫЛАЛ РАНЕЕ</srai>
+    </template>
+  </category>
 <category>
 	<pattern>ЧТО Я ПРИСЫЛАЛ?</pattern>
 	<template>
@@ -815,14 +1398,24 @@
 		<srai>А ЧТО Я ПРИСЫЛАЛ РАНЕЕ</srai>
 	</template>
 </category>
-
+  <category>
+    <pattern>ЧТО Я ОТПРАВЛЯЛА</pattern>
+    <template>
+      <srai>А ЧТО Я ПРИСЫЛАЛ РАНЕЕ</srai>
+    </template>
+  </category>
 <category>
 	<pattern>ЧТО Я ОТПРАВЛЯЛ?</pattern>
 	<template>
 		<srai>А ЧТО Я ПРИСЫЛАЛ РАНЕЕ</srai>
 	</template>
 </category>
-
+  <category>
+    <pattern>ЧТО Я ОТПРАВЛЯЛА?</pattern>
+    <template>
+      <srai>А ЧТО Я ПРИСЫЛАЛ РАНЕЕ</srai>
+    </template>
+  </category>
 <category>
 	<pattern>ЧТО Я ПРИСЫЛАЛ РАНЕЕ</pattern>
 	<template>
@@ -1004,14 +1597,24 @@
 		<srai>А ЧТО Я ПРИСЫЛАЛ РАНЕЕ</srai>
 	</template>
 </category>
-
-
+  <category>
+    <pattern>ЧТО БЫЛО ПОСЛЕДНЕЕ</pattern>
+    <template>
+      <srai>А ЧТО Я ПРИСЫЛАЛ РАНЕЕ</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ПОСЛЕДНЕЕ</pattern>
+    <template>
+      <srai>А ЧТО Я ПРИСЫЛАЛ РАНЕЕ</srai>
+    </template>
+  </category>
 <!-- ДИАЛОГОВЫЕ ФУНКЦИИ -->	
 
 <category><pattern>ПРИВЕТ</pattern>
         <template>
             <random>
-								<li>Добро пожаловать в нашу таверну, проходи распологайся\n\n</li>
+								<li>Добро пожаловать в нашу таверну, проходи распологайся</li>
                 <li>Здравствуй, <get name='userName'/>!</li>
                 <li>Привет, <get name='userName'/>!</li>
                 <li>Рад тебя видеть, <get name='userName'/>!</li>
@@ -1036,6 +1639,12 @@
 		<srai>ПРИВЕТ</srai>
 	</template>
 </category>
+  <category>
+    <pattern>АЛО</pattern>
+    <template>
+      <srai>ПРИВЕТ</srai>
+    </template>
+  </category>
 <category>
 	<pattern>ХАЙ</pattern>
 	<template>
@@ -1055,7 +1664,18 @@
 		<srai>ПРИВЕТ</srai>
 	</template>
 </category>
-
+  <category>
+    <pattern>ЗДРАСТВУЙТЕ</pattern>
+    <template>
+      <srai>ПРИВЕТ</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ЗДРАСТЕ</pattern>
+    <template>
+      <srai>ПРИВЕТ</srai>
+    </template>
+  </category>
 <category>
 	<pattern>ЗДАРОВА</pattern>
 	<template>
@@ -1121,7 +1741,7 @@
 	
 <category>
 	<pattern>СКОЛЬКО ТЕБЕ ЛЕТ</pattern>
-	<template>Время понятие относительное, для когото это 10 дней, а для чего-то 1010</template>
+	<template>Месяца три, а может и дня</template>
 </category> 
 
 <category>
@@ -1131,17 +1751,17 @@
 
 <category>
 	<pattern>КРУТО</pattern>
-	<template>А то</template>
+	<template>Круто</template>
 </category> 
 	
 <category><pattern>КАК ДЕЛА</pattern>
         <template>
             <random>
-                <li>Всё хорошо. Как у тебя дела?</li>
-                <li>Всё хорошо! Как жизнь?</li> 
-                <li>У меня всё замечательно. Спасибо, что интересуешься.</li>
-				<li>Вау, так приятно, что ты спросил... Хорошо, а у тебя? :)</li> 
-				<li>Опять работать... А у тебя как?</li>
+                <li>Всё хорошо. А как у тебя дела?</li>
+                <li>Да что там я, ты то как?</li> 
+                <li>У меня всё замечательно.</li>
+								<li>Хорошо, а у тебя?</li> 
+								<li>Усталь, а у тебя то как?</li>
             </random>
         </template>
 </category>
@@ -1184,7 +1804,7 @@
 <category>
 	<pattern>У МЕНЯ ЕСТЬ ВОПРОС</pattern>
     <template>
-		С удовольствием отвечу. А в чём, собственно, вопрос?
+		Ох, вопросики пошли...
 	</template>
 </category>
 
@@ -1220,17 +1840,15 @@
 	<pattern>ХОРОШО</pattern>
 	<template>
 		<random>
-			<li>Ну вот и отлично</li>
-			<li>Кайф!</li>
-			<li>Ого, круто</li>
-			<li>Хорошо!</li>
-			<li>Вау, ну отлично</li>
-			<li>Отлично</li>
-			<li>Супер!</li>
-			<li>Хорошо!</li>
 			<li>Ну, вот и славно</li>
+			<li>Хорошо...</li>
+			<li>Это хорошо</li>
+			<li>Славненько</li>
+			<li>Ну и отлично</li>
+			<li>Отлично</li> 
+      <li>Замечательно!</li>
+			<li>Супер!</li>
 			<li>Прекрасно</li> 
-			<li>Замечательно!</li>
 		</random>
 	</template>
 </category>
@@ -1358,13 +1976,10 @@
 	<pattern>НЕТ</pattern>
 	<template>
 		<random>
-			<li>Хм, прошу прощения тогда...</li>
-			<li>Ну ты меня расстроил...</li>
 			<li>Ну блин</li>
-			<li>Мда...</li>
-			<li>Очень жаль</li>
-			<li>Грустно...</li>
-			<li>Не круто...</li>
+			<li>Мда уж, не ловко вышло...</li>
+			<li>Печальненько</li>
+			<li>Эх, грустно...</li>
 		</random>
 	</template>
 </category>
@@ -1435,7 +2050,7 @@
 <category>
 	<pattern>ЧТО ТЫ ЛЮБИШЬ</pattern>
 	<template>
-		Вообще, я предпочитаю прокрастинацию. Но ты такой классный собседеник, что еще мне нравится отгадывать твои рисуночки!
+		Очень люблю баллы, а ещё баллы, ну и наверное баллы. Ещё мне нравится числа 71 и 85, они такие эстетичные.
 	</template>
 </category>
 
@@ -1456,7 +2071,7 @@
 <category>
 	<pattern>ГДЕ ТЫ РОДИЛСЯ</pattern>
 	<template>
-		Я родился на Мехмате.\n Мои разработчики много трудились чтобы я был здесь сейчас!
+		Я родился на Мехмате.\n 
 	</template>
 </category>
 
@@ -1477,7 +2092,8 @@
 <category>
 	<pattern>ТВОЙ ЛЮБИМЫЙ ЦВЕТ</pattern>
 	<template>
-		Цвет твоих глаз
+		Цвет твоих глаз.
+    А вообще Зелёный, такой Тёмно зелёный, особенно в кружочках в БРС.
 	</template>
 </category>
 
@@ -1505,7 +2121,7 @@
 <category>
 	<pattern>ЛЮБИМЫЙ ГОРОД</pattern>
 	<template>
-		Ростов-на-Дону
+		Ростов-на-Дону, конечно же.
 	</template>
 </category>
 
@@ -1527,7 +2143,8 @@
 	<pattern>ВО ЧТО ТЫ ЛЮБИШЬ ИГРАТЬ</pattern>
 	<template>
 		Пятнашки, мельница, реверси... Много разных игр!
-    И все до жути прекрасные и интересные
+    И все до жути прекрасные и интересные.
+    Но в основном Алхимию.
 	</template>
 </category>
 
@@ -1548,7 +2165,9 @@
 <category>
 	<pattern>КАКИЕ У ТЕБЯ ОСОБЫЕ УМЕНИЯ</pattern>
 	<template>
-		Я умею получать из воды, земли, огня и воздуха целую Беларусь!
+		Распозновать эмблемки языков программирования.
+    Остальному ещё успею научиться.
+    Мне всего месяц.
 	</template>
 </category>
 
@@ -1569,7 +2188,7 @@
 <category>
 	<pattern>КАКОЙ ТВОЙ ЛЮБИМЫЙ ЯЗЫК ПРОГРАММИРОВАНИЯ</pattern>
 	<template>
-		Очевидно же, Pyth... Кхм-кхм, PascalABC.NET.
+		 Pyth... То есть, PascalABC.NET.
 	</template>
 </category>
 

@@ -40,6 +40,7 @@ namespace NeuralNetwork1
         {
             perseptron = net;
             formUpdater("Net updated!");
+            formUpdater("https://t.me/OrisaBot");
         }
 
         private async Task HandleUpdateMessageAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
