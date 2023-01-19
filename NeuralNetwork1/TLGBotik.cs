@@ -78,10 +78,11 @@ namespace NeuralNetwork1
                 //  Масштабируем aforge
                 AForge.Imaging.Filters.ResizeBilinear scaleFilter = new AForge.Imaging.Filters.ResizeBilinear(200,200);
                 var uProcessed = scaleFilter.Apply(AForge.Imaging.UnmanagedImage.FromManagedImage(bm));
-               
-                Sample sample = GenerateImage.GenerateFigure(uProcessed);
-               var fig = perseptron.Predict(sample);
-                switch(fig)
+
+				//Тут обработка изображения Артема
+				var fig = perseptron.Predict(new GenerateImage().GenerateFigure());
+
+				switch (fig)
                 {
                     case FigureType.Rectangle: botik.SendTextMessageAsync(message.Chat.Id, "Это легко, это был прямоугольник!");break;
                     case FigureType.Circle: botik.SendTextMessageAsync(message.Chat.Id, "Это легко, кружочек!"); break;

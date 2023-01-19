@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace NeuralNetwork1
 {
@@ -34,21 +35,65 @@ namespace NeuralNetwork1
         /// </summary>
         AccordNet AccordNet = null;
 
-        /// <summary>
-        /// Абстрактный базовый класс, псевдоним либо для CustomNet, либо для AccordNet
-        /// </summary>
-        BaseNetwork net = null;
+		/// <summary>
+		/// Текущая выбранная через селектор нейросеть
+		/// </summary>
+		public BaseNetwork Net
+		{
+			get
+			{
+				var selectedItem = (string)netTypeBox.SelectedItem;
+				if (!networksCache.ContainsKey(selectedItem))
+					networksCache.Add(selectedItem, CreateNetwork(selectedItem));
 
-        public Form1()
+				return networksCache[selectedItem];
+			}
+		}
+
+		private readonly Dictionary<string, Func<int[], BaseNetwork>> networksFabric;
+		private Dictionary<string, BaseNetwork> networksCache = new Dictionary<string, BaseNetwork>();
+
+		public Form1()
         {
             InitializeComponent();
-            tlgBot = new TLGBotik(net, new UpdateTLGMessages(UpdateTLGInfo));
-            netTypeBox.SelectedIndex = 1;
-            generator.figure_count = (int)classCounter.Value;
-            button3_Click(this, null);
+            tlgBot = new TLGBotik(Net, new UpdateTLGMessages(UpdateTLGInfo));
+			netTypeBox.Items.AddRange(this.networksFabric.Keys.Select(s => (object)s).ToArray());
+			netTypeBox.SelectedIndex = 0;
+			generator.FigureCount = (int)classCounter.Value;
+			button3_Click(this, null);
             pictureBox1.Image = Properties.Resources.Title;
 
         }
+
+		public Form1(Dictionary<string, Func<int[], BaseNetwork>> networksFabric)
+		{
+			InitializeComponent();
+			this.networksFabric = networksFabric;
+
+			netTypeBox.Items.AddRange(this.networksFabric.Keys.Select(s => (object)s).ToArray());
+			netTypeBox.SelectedIndex = 0;
+			generator.FigureCount = (int)classCounter.Value;
+
+
+			tlgBot = new TLGBotik(Net, new UpdateTLGMessages(UpdateTLGInfo));
+
+
+			button3_Click(this, null);
+			pictureBox1.Image = Properties.Resources.Title;
+
+		}
+
+		private BaseNetwork CreateNetwork(string networkName)
+		{
+			var network = networksFabric[networkName](CurrentNetworkStructure());
+			network.TrainProgress += UpdateLearningInfo;
+			return network;
+		}
+
+		private int[] CurrentNetworkStructure()
+		{
+			return netStructureBox.Text.Split(';').Select(int.Parse).ToArray();
+		}
 
 		public void UpdateLearningInfo(double progress, double error, TimeSpan elapsedTime)
 		{
@@ -74,27 +119,22 @@ namespace NeuralNetwork1
             TLGUsersMessages.Text += message + Environment.NewLine;
         }
 
-        private void set_result(Sample figure)
-        {
-            label1.Text = figure.ToString();
+		private void set_result(Sample figure)
+		{
+			label1.ForeColor = figure.Correct() ? Color.Green : Color.Red;
 
-            if (figure.Correct())
-                label1.ForeColor = Color.Green;
-            else
-                label1.ForeColor = Color.Red;
+			label1.Text = "Распознано : " + figure.recognizedClass;
 
-            label1.Text = "Распознано : " + figure.recognizedClass.ToString();
+			label8.Text = string.Join("\n", figure.Output.Select(d => d.ToString(CultureInfo.InvariantCulture)));
+			pictureBox1.Image = generator.GenBitmap();
+			pictureBox1.Invalidate();
+		}
 
-            label8.Text = String.Join("\n", net.getOutput().Select(d => d.ToString()));
-            pictureBox1.Image = generator.genBitmap();
-            pictureBox1.Invalidate();
-        }
-
-        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+		private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
             Sample fig = generator.GenerateFigure();
 
-            net.Predict(fig);
+			Net.Predict(fig);
 
             set_result(fig);
 
@@ -104,36 +144,45 @@ namespace NeuralNetwork1
 
         }
 
-        private async Task<double> train_networkAsync(int training_size, int epoches, double acceptable_error, bool parallel = true)
-        {
-            //  Выключаем всё ненужное
-            label1.Text = "Выполняется обучение...";
-            label1.ForeColor = Color.Red;
-            groupBox1.Enabled = false;
-            pictureBox1.Enabled = false;
-            trainOneButton.Enabled = false;
+		private async Task<double> train_networkAsync(int training_size, int epoches, double acceptable_error,
+			bool parallel = true)
+		{
+			//  Выключаем всё ненужное
+			label1.Text = "Выполняется обучение...";
+			label1.ForeColor = Color.Red;
+			groupBox1.Enabled = false;
+			pictureBox1.Enabled = false;
+			trainOneButton.Enabled = false;
 
-            //  Создаём новую обучающую выборку
-            SamplesSet samples = new SamplesSet();
+			//  Создаём новую обучающую выборку
+			SamplesSet samples = new SamplesSet();
 
-            for (int i = 0; i < training_size; i++)
-                samples.AddSample(generator.GenerateFigure());
+			for (int i = 0; i < training_size; i++)
+				samples.AddSample(generator.GenerateFigure());
+			try
+			{
+				//  Обучение запускаем асинхронно, чтобы не блокировать форму
+				var curNet = Net;
+				double f = await Task.Run(() => curNet.TrainOnDataSet(samples, epoches, acceptable_error, parallel));
 
-            //  Обучение запускаем асинхронно, чтобы не блокировать форму
-            double f = await Task.Run(() => net.TrainOnDataSet(samples, epoches, acceptable_error, parallel));
+				label1.Text = "Щелкните на картинку для теста нового образа";
+				label1.ForeColor = Color.Green;
+				groupBox1.Enabled = true;
+				pictureBox1.Enabled = true;
+				trainOneButton.Enabled = true;
+				StatusLabel.Text = "Ошибка: " + f;
+				StatusLabel.ForeColor = Color.Green;
+				return f;
+			}
+			catch (Exception e)
+			{
+				label1.Text = $"Исключение: {e.Message}";
+			}
 
-            label1.Text = "Щелкните на картинку для теста нового образа";
-            label1.ForeColor = Color.Green;
-            groupBox1.Enabled = true;
-            pictureBox1.Enabled = true;
-            trainOneButton.Enabled = true;
-            StatusLabel.Text = "Accuracy: " + f.ToString();
-            StatusLabel.ForeColor = Color.Green;
-            return f;
+			return 0;
+		}
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+		private void button1_Click(object sender, EventArgs e)
         {
 
             #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
@@ -151,9 +200,9 @@ namespace NeuralNetwork1
             for (int i = 0; i < (int)TrainingSizeCounter.Value; i++)
                 samples.AddSample(generator.GenerateFigure());
 
-            double accuracy = net.TestOnDataSet(samples);
-            
-            StatusLabel.Text = string.Format("Точность на тестовой выборке : {0,5:F2}%", accuracy*100);
+			double accuracy = samples.TestNeuralNetwork(Net);
+
+			StatusLabel.Text = string.Format("Точность на тестовой выборке : {0,5:F2}%", accuracy*100);
             if (accuracy*100 >= AccuracyCounter.Value)
                 StatusLabel.ForeColor = Color.Green;
             else
@@ -164,27 +213,31 @@ namespace NeuralNetwork1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //  Проверяем корректность задания структуры сети
-            int[] structure = netStructureBox.Text.Split(';').Select((c) => int.Parse(c)).ToArray();
-            if (structure.Length < 2 || structure[0] != 400 || structure[structure.Length - 1] != generator.figure_count)
-            {
-                MessageBox.Show("А давайте вы структуру сети нормально запишите, ОК?", "Ошибка", MessageBoxButtons.OK);
-                return;
-            };
 
-            
-            AccordNet = new AccordNet(structure);
-            AccordNet.updateDelegate = UpdateLearningInfo;
+			//  Проверяем корректность задания структуры сети
+			int[] structure = CurrentNetworkStructure();
+			if (structure.Length < 2 || structure[0] != 400 ||
+				structure[structure.Length - 1] != generator.FigureCount)
+			{
+				MessageBox.Show(
+					$"В сети должно быть более двух слоёв, первый слой должен содержать 400 нейронов, последний - ${generator.FigureCount}",
+					"Ошибка", MessageBoxButtons.OK);
+				return;
+			}
 
-            net = AccordNet;
+			// Чистим старые подписки сетей
+			foreach (var network in networksCache.Values)
+				network.TrainProgress -= UpdateLearningInfo;
+			// Пересоздаём все сети с новой структурой
+			networksCache = networksCache.ToDictionary(oldNet => oldNet.Key, oldNet => CreateNetwork(oldNet.Key));
 
-            tlgBot.SetNet(net);
+			tlgBot.SetNet(Net);
 
         }
 
         private void classCounter_ValueChanged(object sender, EventArgs e)
         {
-            generator.figure_count = (int)classCounter.Value;
+            generator.FigureCount = (int)classCounter.Value;
             var vals = netStructureBox.Text.Split(';');
             int outputNeurons;
             if (int.TryParse(vals.Last(),out outputNeurons))
@@ -196,12 +249,12 @@ namespace NeuralNetwork1
 
         private void btnTrainOne_Click(object sender, EventArgs e)
         {
-            if (net == null) return;
-            Sample fig = generator.GenerateFigure();
-            pictureBox1.Image = generator.genBitmap();
-            pictureBox1.Invalidate();
-            net.Train(fig, false);
-            set_result(fig);
+            if (Net == null) return;
+			Sample fig = generator.GenerateFigure();
+			pictureBox1.Image = generator.GenBitmap();
+			pictureBox1.Invalidate();
+			Net.Train(fig, 0.00005, parallelCheckBox.Checked);
+			set_result(fig);
         }
 
         private void netTrainButton_MouseEnter(object sender, EventArgs e)
@@ -216,7 +269,7 @@ namespace NeuralNetwork1
 
         private void netTypeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            net = AccordNet;
+            
         }
 
         private void recreateNetButton_MouseEnter(object sender, EventArgs e)
