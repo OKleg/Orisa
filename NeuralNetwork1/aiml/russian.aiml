@@ -2290,7 +2290,7 @@
   </category>
 
   <category>
-    <pattern>ОБНОВЛЕНИЕ ФИГУРЫ *</pattern>
+    <pattern>НОВЫЙ ОБРАЗ *</pattern>
     <template>
       <think>
         <set name='figureType'>

@@ -56,16 +56,17 @@ namespace NeuralNetwork1
 				AIMLbot.AddUser(chat_id, name);
 				AIMLbot.Dump();
 				var answer = AIMLbot.Talk(chat_id, $"СТАРТ {name}");
-				botik.SendTextMessageAsync(message.Chat.Id, answer);
+				await botik.SendTextMessageAsync(message.Chat.Id, answer);
 				return;
 			}
+			
+			formUpdater("Тип сообщения : " + message.Type.ToString());
 			var user = AIMLbot.Users[chat_id];
 			AIMLbot.Talk(user.Id, $"ИМЯ {user.Name}");
-
-			formUpdater("Тип сообщения : " + message.Type.ToString());
-
-				//  Получение файла (картинки)
-				if (message.Type == Telegram.Bot.Types.Enums.MessageType.Photo)
+			AIMLbot.Talk(user.Id, $"НОВЫЙ ОБРАЗ {user.LastFigure}");
+			
+			//  Получение файла (картинки)
+			if (message.Type == Telegram.Bot.Types.Enums.MessageType.Photo)
 			{
 				formUpdater("Picture loadining started");
 				var photoId = message.Photo.Last().FileId;
@@ -86,20 +87,20 @@ namespace NeuralNetwork1
 
 				
 				var fig = perseptron.Predict(new GenerateImage().GenerateFigure(bm));
-
+				user.LastFigure = fig;
 				switch (fig)
 				{
-					case FigureType.cpp: botik.SendTextMessageAsync(message.Chat.Id, "Это прекрасный C++?");break;
-					case FigureType.cs: botik.SendTextMessageAsync(message.Chat.Id, "Это удобный C#?"); break;
-					case FigureType.python: botik.SendTextMessageAsync(message.Chat.Id, "Это доступный каждому Python?"); break;
-					case FigureType.go: botik.SendTextMessageAsync(message.Chat.Id, "Это Golang?"); break;
-					case FigureType.java: botik.SendTextMessageAsync(message.Chat.Id, "Это Java?"); break;
-					case FigureType.js: botik.SendTextMessageAsync(message.Chat.Id, "Это JS?"); break;
-					case FigureType.haskell: botik.SendTextMessageAsync(message.Chat.Id, "Это непонятный мне Haskel?"); break;
-					case FigureType.pascal: botik.SendTextMessageAsync(message.Chat.Id, "Это наш любимый Pascal?"); break;
-					case FigureType.php: botik.SendTextMessageAsync(message.Chat.Id, "Фи, это PHP?"); break;
-					case FigureType.Ruby: botik.SendTextMessageAsync(message.Chat.Id, "Это Ruby?"); break;
-					default: botik.SendTextMessageAsync(message.Chat.Id, "Я такого не знаю!"); break;
+					case FigureType.cpp: await botik.SendTextMessageAsync(message.Chat.Id, "Это прекрасный C++?");break;
+					case FigureType.cs: await botik.SendTextMessageAsync(message.Chat.Id, "Это удобный C#?"); break;
+					case FigureType.python: await botik.SendTextMessageAsync(message.Chat.Id, "Это доступный каждому Python?"); break;
+					case FigureType.go: await botik.SendTextMessageAsync(message.Chat.Id, "Это Golang?"); break;
+					case FigureType.java: await botik.SendTextMessageAsync(message.Chat.Id, "Это Java?"); break;
+					case FigureType.js: await botik.SendTextMessageAsync(message.Chat.Id, "Это JS?"); break;
+					case FigureType.haskell: await botik.SendTextMessageAsync(message.Chat.Id, "Это непонятный мне Haskel?"); break;
+					case FigureType.pascal: await botik.SendTextMessageAsync(message.Chat.Id, "Это наш любимый Pascal?"); break;
+					case FigureType.php: await botik.SendTextMessageAsync(message.Chat.Id, "Фи, это PHP?"); break;
+					case FigureType.Ruby: await botik.SendTextMessageAsync(message.Chat.Id, "Это Ruby?"); break;
+					default: await botik.SendTextMessageAsync(message.Chat.Id, "Я такого не знаю!"); break;
 				}
 
 				formUpdater("Picture recognized!");
@@ -111,12 +112,12 @@ namespace NeuralNetwork1
 			{
 				formUpdater( user.Name+": "+ message.Text);
 				var answer = AIMLbot.Talk(user.Id, message.Text);
-				botik.SendTextMessageAsync(long.Parse(user.Id), answer);
+				await botik.SendTextMessageAsync(long.Parse(user.Id), answer);
 				return;
 			}
 			if (message == null || message.Type != MessageType.Text) return;
 			
-			botik.SendTextMessageAsync(message.Chat.Id, "Bot reply : " + message.Text);
+			await botik.SendTextMessageAsync(message.Chat.Id, "Bot reply : " + message.Text);
 			formUpdater(message.Text);
 			return;
 		}
