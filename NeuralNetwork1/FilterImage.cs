@@ -14,13 +14,14 @@ namespace NeuralNetwork1
 	{
 		public static Bitmap Filter(System.Drawing.Image img, bool crop = false, int thres = 160)
 		{
+			System.Console.WriteLine(thres);
 			System.Drawing.Bitmap bm = new System.Drawing.Bitmap(img);
 
 			if (crop)
 			{
 				Random r = new Random();
-				int newW = bm.Width * ((r.Next() % 20) + 70) / 100;
-				int newH = bm.Height * ((r.Next() % 20) + 70) / 100;
+				int newW = bm.Width * ((r.Next() % 20) + 75) / 100;
+				int newH = bm.Height * ((r.Next() % 20) + 75) / 100;
 				AForge.Imaging.Filters.Crop cropf = new AForge.Imaging.Filters.Crop(new Rectangle(r.Next() % 10, r.Next() % 10, newW, newH));
 				bm = cropf.Apply(bm);
 

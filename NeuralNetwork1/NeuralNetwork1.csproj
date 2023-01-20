@@ -205,11 +205,8 @@
     <Content Include="config\Substitutions.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dataset\cpp\1.png" />
     <Content Include="dataset\cpp\20230120_142543.jpg" />
-    <Content Include="dataset\cpp\4.png" />
     <Content Include="dataset\cpp\5.png" />
-    <Content Include="dataset\cpp\2.png" />
     <Content Include="dataset\cpp\Screenshot_12.png" />
     <Content Include="dataset\cpp\Screenshot_2.png" />
     <Content Include="dataset\cpp\Screenshot_22.png" />
@@ -217,8 +214,6 @@
     <Content Include="dataset\cs\20230120_142857.jpg" />
     <Content Include="dataset\cs\20230120_142927.jpg" />
     <Content Include="dataset\cs\Screenshot_14.png" />
-    <Content Include="dataset\cs\Screenshot_24.png" />
-    <Content Include="dataset\cs\Screenshot_34.png" />
     <Content Include="dataset\cs\Screenshot_4.png" />
     <Content Include="dataset\go\20230120_143142.jpg" />
     <Content Include="dataset\go\Screenshot_17.png" />

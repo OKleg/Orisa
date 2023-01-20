@@ -105,7 +105,7 @@ namespace NeuralNetwork1
 		{
 			currentFigure = type;
 
-			var bm = FilterImage.Filter(GetRandomImage(type.ToString()), true, rand.Next(100, 200));
+			var bm = FilterImage.Filter(GetRandomImage(type.ToString()), true, rand.Next(100, 150));
 
 			for (int i = 0; i < 32; ++i)
 				for (int j = 0; j < 32; ++j)
