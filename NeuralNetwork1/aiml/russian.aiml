@@ -16,28 +16,13 @@
 	</template>
 </category>
 
-<!-- ВНУТРЕННИЕ ФУНКЦИИ -->
-
-<category>
-	<pattern>ОБНОВЛЕНИЕ ИМЕНИ *</pattern>
-	<template>
-		<think> <set name='userName'> <star/> </set> </think>
-	</template>
-</category>
-
-<category>
-	<pattern>ОБНОВЛЕНИЕ ФИГУРЫ *</pattern>
-	<template>
-		<think> <set name='figureType'> <star/> </set> </think>
-	</template>
-</category>
 
 <!-- ПРИВЕТСТВИЕ -->
 
 <category>
 	<pattern>СТАРТ *</pattern>
 	<template>
-		<think> <sray>ОБНОВЛЕНИЕ ИМЕНИ <star/></sray> </think>
+		<think> <sray>ИМЯ <star/></sray> </think>
 		Приветствую, <star/>!
 		Меня зовут Orisa - я бот распознающий эмблемы языков программирования по черно-белым фото.
 	Ты можешь прислать мне фото эмблемы которую хочешь распознать и я скажу тебе, что это за язык программирования.
@@ -2213,4 +2198,25 @@
 	</template>
 </category>
 
+  <category>
+    <pattern>ИМЯ *</pattern>
+    <template>
+      <think>
+        <set name='userName'>
+          <star/>
+        </set>
+      </think>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ОБНОВЛЕНИЕ ФИГУРЫ *</pattern>
+    <template>
+      <think>
+        <set name='figureType'>
+          <star/>
+        </set>
+      </think>
+    </template>
+  </category>
 </aiml>

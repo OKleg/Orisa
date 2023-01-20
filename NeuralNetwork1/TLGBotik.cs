@@ -60,7 +60,7 @@ namespace NeuralNetwork1
 				return;
 			}
 			var user = AIMLbot.Users[chat_id];
-			AIMLbot.Talk(user.Id, $"ОБНОВЛЕНИЕ ИМЕНИ {user.Name}");
+			AIMLbot.Talk(user.Id, $"ИМЯ {user.Name}");
 
 			formUpdater("Тип сообщения : " + message.Type.ToString());
 

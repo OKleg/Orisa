@@ -279,7 +279,7 @@ namespace NeuralNetwork1
 
 		private void button1_Click_1(object sender, EventArgs e)
 		{ 
-			botik.Talk("default_user_id", "ОБНОВЛЕНИЕ ИМЕНИ TLGBot");
+			botik.Talk("default_user_id", "ИМЯ TLGBot");
 			var phrase = AIMLInput.Text;
 			if (phrase.Length > 0)
 				AIMLOutput.Text += botik.Talk("default_user_id",phrase) + Environment.NewLine;
