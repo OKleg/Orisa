@@ -1335,28 +1335,48 @@
 		</random> 
 	</template>
 </category>
-
+  <category>
+    <pattern>О ЧЁМ МЫ</pattern>
+    <template>
+      <srai>О ЧЕМ МЫ</srai>
+    </template>
+  </category>
 <category>
 	<pattern>О ЧЕМ МЫ?</pattern>
 	<template>
 		<srai>О ЧЕМ МЫ</srai>
 	</template>
 </category>
-
+  <category>
+    <pattern>О ЧЁМ МЫ?</pattern>
+    <template>
+      <srai>О ЧЕМ МЫ</srai>
+    </template>
+  </category>
 <category>
 	<pattern>ТАК О ЧЕМ МЫ</pattern>
 	<template>
 		<srai>О ЧЕМ МЫ</srai>
 	</template>
 </category>
-
+  <category>
+    <pattern>ТАК О ЧЁМ МЫ</pattern>
+    <template>
+      <srai>О ЧЕМ МЫ</srai>
+    </template>
+  </category>
 <category>
 	<pattern>ТАК О ЧЕМ МЫ?</pattern>
 	<template>
 		<srai>О ЧЕМ МЫ</srai>
 	</template>
 </category>
-
+  <category>
+    <pattern>ТАК О ЧЁМ МЫ?</pattern>
+    <template>
+      <srai>О ЧЕМ МЫ</srai>
+    </template>
+  </category>
 <category>
 	<pattern>ЧТО МЫ ОБСУЖДАЕМ</pattern>
 	<template>
@@ -1391,7 +1411,12 @@
 		<srai>О ЧЕМ МЫ</srai>
 	</template>
 </category>
-
+  <category>
+    <pattern>О ЧЁМ МЫ ГОВОРИЛИ</pattern>
+    <template>
+      <srai>О ЧЕМ МЫ</srai>
+    </template>
+  </category>
 <category>
 	<pattern>ПРО ЧТО МЫ ГОВОРИМ?</pattern>
 	<template>
