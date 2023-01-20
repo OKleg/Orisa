@@ -1,33 +1,33 @@
 ﻿namespace NeuralNetwork1
 {
-    partial class Form1
-    {
-        /// <summary>
-        /// Обязательная переменная конструктора.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class Form1
+	{
+		/// <summary>
+		/// Обязательная переменная конструктора.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Освободить все используемые ресурсы.
-        /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Освободить все используемые ресурсы.
+		/// </summary>
+		/// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Код, автоматически созданный конструктором форм Windows
+		#region Код, автоматически созданный конструктором форм Windows
 
-        /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
-        /// </summary>
-        private void InitializeComponent()
-        {
+		/// <summary>
+		/// Требуемый метод для поддержки конструктора — не изменяйте 
+		/// содержимое этого метода с помощью редактора кода.
+		/// </summary>
+		private void InitializeComponent()
+		{
 			System.Windows.Forms.Label label2;
 			System.Windows.Forms.Label label4;
 			System.Windows.Forms.Label label5;
@@ -135,6 +135,7 @@
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox1.TabIndex = 1;
 			this.pictureBox1.TabStop = false;
+			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
 			// 
 			// label1
@@ -208,7 +209,7 @@
 			this.netStructureBox.Name = "netStructureBox";
 			this.netStructureBox.Size = new System.Drawing.Size(120, 20);
 			this.netStructureBox.TabIndex = 18;
-			this.netStructureBox.Text = "400;500;20;2";
+			this.netStructureBox.Text = "64;512;64;2";
 			// 
 			// recreateNetButton
 			// 
@@ -514,41 +515,41 @@
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
-        }
+		}
 
-        #endregion
+		#endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown TrainingSizeCounter;
-        private System.Windows.Forms.NumericUpDown EpochesCounter;
-        private System.Windows.Forms.TrackBar AccuracyCounter;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button recreateNetButton;
-        private System.Windows.Forms.NumericUpDown classCounter;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button trainOneButton;
-        private System.Windows.Forms.TextBox netStructureBox;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.NumericUpDown TrainingSizeCounter;
+		private System.Windows.Forms.NumericUpDown EpochesCounter;
+		private System.Windows.Forms.TrackBar AccuracyCounter;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Button recreateNetButton;
+		private System.Windows.Forms.NumericUpDown classCounter;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Button trainOneButton;
+		private System.Windows.Forms.TextBox netStructureBox;
 		private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel infoStatusLabel;
-        private System.Windows.Forms.Label elapsedTimeLabel;
-        private System.Windows.Forms.Button testNetButton;
-        private System.Windows.Forms.Button netTrainButton;
-        private System.Windows.Forms.CheckBox parallelCheckBox;
-        private System.Windows.Forms.ToolStripMenuItem вапрвапрToolStripMenuItem;
-        private System.Windows.Forms.ComboBox netTypeBox;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label StatusLabel;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox AIMLOutput;
-        private System.Windows.Forms.TextBox AIMLInput;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button TLGBotOnButton;
-        private System.Windows.Forms.TextBox TLGUsersMessages;
-    }
+		private System.Windows.Forms.StatusStrip statusStrip1;
+		private System.Windows.Forms.ToolStripStatusLabel infoStatusLabel;
+		private System.Windows.Forms.Label elapsedTimeLabel;
+		private System.Windows.Forms.Button testNetButton;
+		private System.Windows.Forms.Button netTrainButton;
+		private System.Windows.Forms.CheckBox parallelCheckBox;
+		private System.Windows.Forms.ToolStripMenuItem вапрвапрToolStripMenuItem;
+		private System.Windows.Forms.ComboBox netTypeBox;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label StatusLabel;
+		private System.Windows.Forms.GroupBox groupBox2;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.TextBox AIMLOutput;
+		private System.Windows.Forms.TextBox AIMLInput;
+		private System.Windows.Forms.GroupBox groupBox3;
+		private System.Windows.Forms.Button TLGBotOnButton;
+		private System.Windows.Forms.TextBox TLGUsersMessages;
+	}
 }
 

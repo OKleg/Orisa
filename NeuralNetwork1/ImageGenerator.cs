@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Drawing;
 
 namespace NeuralNetwork1
@@ -6,14 +7,14 @@ namespace NeuralNetwork1
 	/// <summary>
 	/// Тип фигуры
 	/// </summary>
-	public enum FigureType : byte { Triangle = 0, Rectangle, Circle, Sinusiod, Undef };
+	public enum FigureType : byte { cpp = 0, cs, python, java, js, pascal, Ruby, php, go, haskel, Undef };
 
 	public class GenerateImage
 	{
 		/// <summary>
 		/// Бинарное представление образа
 		/// </summary>
-		public bool[,] img = new bool[200, 200];
+		public bool[,] img = new bool[32, 32];
 
 		//  private int margin = 50;
 		private Random rand = new Random();
@@ -24,197 +25,99 @@ namespace NeuralNetwork1
 		public FigureType currentFigure = FigureType.Undef;
 
 		/// <summary>
-		/// Количество классов генерируемых фигур (4 - максимум)
+		/// Количество классов генерируемых фигур (10 - максимум)
 		/// </summary>
-		public int FigureCount { get; set; } = 4;
+		public int FigureCount { get; set; } = 10;
 
-		/// <summary>
-		/// Диапазон смещения центра фигуры (по умолчанию +/- 20 пикселов от центра)
-		/// </summary>
-		public int FigureCenterGitter { get; set; } = 50;
-
-		/// <summary>
-		/// Диапазон разброса размера фигур
-		/// </summary>
-		public int FigureSizeGitter { get; set; } = 50;
-
-		/// <summary>
-		/// Диапазон разброса размера фигур
-		/// </summary>
-		public int FigureSize { get; set; } = 100;
 
 		/// <summary>
 		/// Очистка образа
 		/// </summary>
 		public void ClearImage()
 		{
-			for (int i = 0; i < 200; ++i)
-				for (int j = 0; j < 200; ++j)
+			for (int i = 0; i < 32; ++i)
+				for (int j = 0; j < 32; ++j)
 					img[i, j] = false;
 		}
 
 		public Sample GenerateFigure()
 		{
 			generate_figure();
-			double[] input = new double[400];
-			for (int i = 0; i < 400; i++)
+			double[] input = new double[64];
+			for (int i = 0; i < 64; i++)
 				input[i] = 0;
 
 			FigureType type = currentFigure;
 
-			for (int i = 0; i < 200; i++)
-				for (int j = 0; j < 200; j++)
+			for (int i = 0; i < 32; i++)
+				for (int j = 0; j < 32; j++)
 					if (img[i, j])
 					{
 						input[i] += 1;
-						input[200 + j] += 1;
+						input[32 + j] += 1;
 					}
 			return new Sample(input, FigureCount, type);
 		}
 
-		private Point GetLeftUpperPoint()
+		public Sample GenerateFigure(Bitmap bm)
 		{
-			int x = 100 - FigureSize / 2 + rand.Next(-FigureSizeGitter / 2, FigureSizeGitter / 2);
-			int y = 100 - FigureSize / 2 + rand.Next(-FigureSizeGitter / 2, FigureSizeGitter / 2);
-			return new Point(x, y);
-		}
-
-		private Point GetRightDownPoint()
-		{
-			int x = 100 + FigureSize / 2 + rand.Next(-FigureSizeGitter / 2, FigureSizeGitter / 2);
-			int y = 100 + FigureSize / 2 + rand.Next(-FigureSizeGitter / 2, FigureSizeGitter / 2);
-			return new Point(x, y);
-		}
-
-		private Point GetCenterPoint()
-		{
-			int x = 100 + rand.Next(-FigureSizeGitter / 2, FigureSizeGitter / 2);
-			int y = 100 + rand.Next(-FigureSizeGitter / 2, FigureSizeGitter / 2);
-			return new Point(x, y);
-		}
-
-		public void get_random_figure()
-		{
-			ClearImage();
-			int type = rand.Next(0, 4);
-			switch (type)
-			{
-				case 0:
-					create_sin();
-					break;
-				case 1:
-					create_rectangle();
-					break;
-				case 2:
-					create_triangle();
-					break;
-				default:
-				case 3:
-					create_circle();
-					break;
-			}
-		}
-
-		private void Bresenham(int x, int y, int x2, int y2)
-		{
-			int w = x2 - x;
-			int h = y2 - y;
-			int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
-			if (w < 0) dx1 = -1; else if (w > 0) dx1 = 1;
-			if (h < 0) dy1 = -1; else if (h > 0) dy1 = 1;
-			if (w < 0) dx2 = -1; else if (w > 0) dx2 = 1;
-			int longest = Math.Abs(w);
-			int shortest = Math.Abs(h);
-
-			if (!(longest > shortest))
-			{
-				longest = Math.Abs(h);
-				shortest = Math.Abs(w);
-				if (h < 0) dy2 = -1; else if (h > 0) dy2 = 1;
-				dx2 = 0;
-			}
-
-			int numerator = longest >> 1;
-			for (int i = 0; i <= longest; i++)
-			{
-				img[x, y] = true;
-				numerator += shortest;
-				if (!(numerator < longest))
+			for (int i = 0; i < 32; ++i)
+				for (int j = 0; j < 32; ++j)
 				{
-					numerator -= longest;
-					x += dx1;
-					y += dy1;
+					img[i, j] = bm.GetPixel(i, j).R == 0;
 				}
-				else
-				{
-					x += dx2;
-					y += dy2;
-				}
-			}
+
+
+			double[] input = new double[64];
+			for (int i = 0; i < 64; i++)
+				input[i] = 0;
+
+			FigureType type = currentFigure;
+
+			for (int i = 0; i < 32; i++)
+				for (int j = 0; j < 32; j++)
+					if (img[i, j])
+					{
+						input[i] += 1;
+						input[32 + j] += 1;
+					}
+			return new Sample(input, FigureCount, type);
 		}
 
 		public bool create_triangle()
 		{
-			currentFigure = FigureType.Triangle;
-			Point leftUpper = GetLeftUpperPoint();
-			Point downLeft = GetRightDownPoint();
-			int centerX = 100 + FigureCenterGitter;
-
-
-			Bresenham(leftUpper.X, downLeft.Y, centerX, leftUpper.Y);
-			Bresenham(centerX, leftUpper.Y, downLeft.X, downLeft.Y);
-			Bresenham(downLeft.X, downLeft.Y, leftUpper.X, downLeft.Y);
+			currentFigure = FigureType.python;
 
 			return true;
 		}
 
-		public bool create_rectangle()
+
+		public Image GetRandomImage(string st)
 		{
-			currentFigure = FigureType.Rectangle;
-
-			Point leftUpper = GetLeftUpperPoint();
-			Point downLeft = GetRightDownPoint();
-
-			Bresenham(leftUpper.X, leftUpper.Y, downLeft.X, leftUpper.Y);
-			Bresenham(downLeft.X, leftUpper.Y, downLeft.X, downLeft.Y);
-			Bresenham(downLeft.X, downLeft.Y, leftUpper.X, downLeft.Y);
-			Bresenham(leftUpper.X, downLeft.Y, leftUpper.X, leftUpper.Y);
-			return true;
+			Random r = new Random();
+			string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+			DirectoryInfo di = new DirectoryInfo(projectDirectory + "\\dataset\\" + st);
+			var files = di.GetFiles();
+			return Image.FromFile(projectDirectory + "\\dataset\\" + st + "\\" + files[r.Next() % files.Length].Name);
 		}
 
-		public bool create_circle()
+		public bool figCreate(FigureType type)
 		{
-			currentFigure = FigureType.Circle;
+			currentFigure = type;
 
-			Point center = GetCenterPoint();
+			var bm = FilterImage.Filter(GetRandomImage(type.ToString()), true, rand.Next(100, 200));
 
-			int radius = rand.Next(50, 65);
-
-			for (double t = 0; t < 2 * Math.PI; t += 0.01)
-			{
-				double x = center.X + radius * Math.Cos(t);
-				double y = center.Y + radius * Math.Sin(t);
-				img[(int)x, (int)y] = true;
-			}
+			for (int i = 0; i < 32; ++i)
+				for (int j = 0; j < 32; ++j)
+				{
+					img[i, j] = bm.GetPixel(i, j).R == 0;
+				}
 			return true;
 		}
 
 		public bool create_sin()
 		{
-			currentFigure = FigureType.Sinusiod;
-
-			Point leftUpper = GetLeftUpperPoint();
-			Point downLeft = GetRightDownPoint();
-
-			int amp = (downLeft.Y - leftUpper.Y) / 2;
-			int centerY = leftUpper.Y + amp;
-
-			double sx = 0.25;
-			for (double x = leftUpper.X; x <= downLeft.X; x += 0.05)
-			{
-				double y = Math.Round(centerY + amp * Math.Sin(sx * x));
-				img[(int)x, (int)y] = true;
-			}
+			currentFigure = FigureType.cpp;
 
 			return true;
 		}
@@ -226,17 +129,7 @@ namespace NeuralNetwork1
 			if (type == FigureType.Undef || (int)type >= FigureCount)
 				type = (FigureType)rand.Next(FigureCount);
 			ClearImage();
-			switch (type)
-			{
-				case FigureType.Rectangle: create_rectangle(); break;
-				case FigureType.Triangle: create_triangle(); break;
-				case FigureType.Circle: create_circle(); break;
-				case FigureType.Sinusiod: create_sin(); break;
-
-				default:
-					type = FigureType.Undef;
-					throw new Exception("Фигуру создать не получилось -_-");
-			}
+			figCreate(type);
 		}
 
 		/// <summary>
@@ -245,9 +138,9 @@ namespace NeuralNetwork1
 		/// <returns></returns>
 		public Bitmap GenBitmap()
 		{
-			Bitmap drawArea = new Bitmap(200, 200);
-			for (int i = 0; i < 200; ++i)
-				for (int j = 0; j < 200; ++j)
+			Bitmap drawArea = new Bitmap(32, 32);
+			for (int i = 0; i < 32; ++i)
+				for (int j = 0; j < 32; ++j)
 					if (img[i, j])
 						drawArea.SetPixel(i, j, Color.Black);
 			return drawArea;

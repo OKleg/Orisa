@@ -120,6 +120,7 @@
     <Compile Include="AIMLBotik.cs" />
     <Compile Include="BaseNetwork.cs" />
     <Compile Include="BNKNet.cs" />
+    <Compile Include="FilterImage.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +167,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\dataset\cpp\1.png" />
+    <Content Include="bin\Debug\dataset\cpp\2.png" />
+    <Content Include="bin\Debug\dataset\cpp\3.png" />
+    <Content Include="bin\Debug\dataset\cpp\4.png" />
+    <Content Include="bin\Debug\dataset\cpp\5.png" />
+    <Content Include="bin\Debug\dataset\cpp\6.png" />
+    <Content Include="bin\Debug\dataset\cpp\7.png" />
+    <Content Include="bin\Debug\dataset\cs\1.png" />
+    <Content Include="bin\Debug\dataset\cs\2.png" />
+    <Content Include="bin\Debug\dataset\cs\3.png" />
+    <Content Include="bin\Debug\dataset\cs\4.png" />
+    <Content Include="bin\Debug\dataset\cs\5.png" />
+    <Content Include="bin\Debug\dataset\cs\6.png" />
+    <Content Include="bin\Debug\dataset\cs\7.png" />
     <Content Include="botKey.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -190,10 +205,67 @@
     <Content Include="config\Substitutions.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="dataset\cpp\1.png" />
+    <Content Include="dataset\cpp\20230120_142543.jpg" />
+    <Content Include="dataset\cpp\4.png" />
+    <Content Include="dataset\cpp\5.png" />
+    <Content Include="dataset\cpp\2.png" />
+    <Content Include="dataset\cpp\Screenshot_12.png" />
+    <Content Include="dataset\cpp\Screenshot_2.png" />
+    <Content Include="dataset\cpp\Screenshot_22.png" />
+    <Content Include="dataset\cpp\Screenshot_32.png" />
+    <Content Include="dataset\cs\20230120_142857.jpg" />
+    <Content Include="dataset\cs\20230120_142927.jpg" />
+    <Content Include="dataset\cs\Screenshot_14.png" />
+    <Content Include="dataset\cs\Screenshot_24.png" />
+    <Content Include="dataset\cs\Screenshot_34.png" />
+    <Content Include="dataset\cs\Screenshot_4.png" />
+    <Content Include="dataset\go\20230120_143142.jpg" />
+    <Content Include="dataset\go\Screenshot_17.png" />
+    <Content Include="dataset\go\Screenshot_27.png" />
+    <Content Include="dataset\go\Screenshot_37.png" />
+    <Content Include="dataset\go\Screenshot_7.png" />
+    <Content Include="dataset\haskell\20230120_143328.jpg" />
+    <Content Include="dataset\haskell\Screenshot_10.png" />
+    <Content Include="dataset\haskell\Screenshot_20.png" />
+    <Content Include="dataset\haskell\Screenshot_30.png" />
+    <Content Include="dataset\haskell\Screenshot_41.png" />
+    <Content Include="dataset\java\20230120_142520.jpg" />
+    <Content Include="dataset\java\Screenshot_1.png" />
+    <Content Include="dataset\java\Screenshot_11.png" />
+    <Content Include="dataset\java\Screenshot_21.png" />
+    <Content Include="dataset\java\Screenshot_31.png" />
+    <Content Include="dataset\js\20230120_143307.jpg" />
+    <Content Include="dataset\js\Screenshot_19.png" />
+    <Content Include="dataset\js\Screenshot_29.png" />
+    <Content Include="dataset\js\Screenshot_40.png" />
+    <Content Include="dataset\js\Screenshot_9.png" />
+    <Content Include="dataset\pascal\20230120_143107.jpg" />
+    <Content Include="dataset\pascal\Screenshot_16.png" />
+    <Content Include="dataset\pascal\Screenshot_26.png" />
+    <Content Include="dataset\pascal\Screenshot_36.png" />
+    <Content Include="dataset\pascal\Screenshot_6.png" />
+    <Content Include="dataset\php\20230120_143038.jpg" />
+    <Content Include="dataset\php\Screenshot_15.png" />
+    <Content Include="dataset\php\Screenshot_25.png" />
+    <Content Include="dataset\php\Screenshot_35.png" />
+    <Content Include="dataset\php\Screenshot_5.png" />
+    <Content Include="dataset\python\20230120_142623.jpg" />
+    <Content Include="dataset\python\Screenshot_13.png" />
+    <Content Include="dataset\python\Screenshot_23.png" />
+    <Content Include="dataset\python\Screenshot_3.png" />
+    <Content Include="dataset\python\Screenshot_33.png" />
+    <Content Include="dataset\Ruby\20230120_143242.jpg" />
+    <Content Include="dataset\Ruby\Screenshot_18.png" />
+    <Content Include="dataset\Ruby\Screenshot_28.png" />
+    <Content Include="dataset\Ruby\Screenshot_38.png" />
+    <Content Include="dataset\Ruby\Screenshot_39.png" />
+    <Content Include="dataset\Ruby\Screenshot_8.png" />
     <Content Include="debug.txt" />
     <None Include="Properties\Title2.png" />
     <None Include="Resources\Title.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Accord.3.8.2-alpha\build\Accord.targets" Condition="Exists('..\packages\Accord.3.8.2-alpha\build\Accord.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
