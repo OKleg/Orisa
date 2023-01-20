@@ -7,7 +7,7 @@ namespace NeuralNetwork1
 	/// <summary>
 	/// Тип фигуры
 	/// </summary>
-	public enum FigureType : byte { cpp = 0, cs, python, java, js, pascal, Ruby, php, go, haskel, Undef };
+	public enum FigureType : byte { cpp = 0, cs, python, java, js, pascal, Ruby, php, go, haskell, Undef };
 
 	public class GenerateImage
 	{

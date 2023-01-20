@@ -226,7 +226,7 @@
 			// 
 			this.classCounter.Location = new System.Drawing.Point(167, 125);
 			this.classCounter.Maximum = new decimal(new int[] {
-            4,
+            10,
             0,
             0,
             0});

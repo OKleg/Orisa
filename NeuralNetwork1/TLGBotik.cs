@@ -78,6 +78,13 @@ namespace NeuralNetwork1
 
 				var bm = FilterImage.Filter(img);
 
+				using (MemoryStream ms = new MemoryStream())
+				{
+					bm.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+					botik.SendPhotoAsync(message.Chat.Id, ms);
+				}
+
+				
 				var fig = perseptron.Predict(new GenerateImage().GenerateFigure(bm));
 
 				switch (fig)
@@ -88,7 +95,7 @@ namespace NeuralNetwork1
 					case FigureType.go: botik.SendTextMessageAsync(message.Chat.Id, "Это Golang?"); break;
 					case FigureType.java: botik.SendTextMessageAsync(message.Chat.Id, "Это Java?"); break;
 					case FigureType.js: botik.SendTextMessageAsync(message.Chat.Id, "Это JS?"); break;
-					case FigureType.haskel: botik.SendTextMessageAsync(message.Chat.Id, "Это непонятный мне Haskel?"); break;
+					case FigureType.haskell: botik.SendTextMessageAsync(message.Chat.Id, "Это непонятный мне Haskel?"); break;
 					case FigureType.pascal: botik.SendTextMessageAsync(message.Chat.Id, "Это наш любимый Pascal?"); break;
 					case FigureType.php: botik.SendTextMessageAsync(message.Chat.Id, "Фи, это PHP?"); break;
 					case FigureType.Ruby: botik.SendTextMessageAsync(message.Chat.Id, "Это Ruby?"); break;
