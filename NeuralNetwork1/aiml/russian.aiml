@@ -52,7 +52,12 @@
 		<srai>ИНФОРМАЦИЯ</srai>
 	</template>
 </category>
-
+  <category>
+    <pattern>ЧТО УМЕЕШЬ</pattern>
+    <template>
+      <srai>ЧТО ТЫ ЗНАЕШЬ</srai>
+    </template>
+  </category>
 <category>
 	<pattern>ЧТО ТЫ УМЕЕШЬ</pattern>
 	<template>
@@ -140,7 +145,18 @@
   </random>
   </template>
 </category>
-  
+  <category>
+    <pattern>ПАСКАЛЬ</pattern>
+    <template>
+      <srai>Pascal</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ПАСКАЛЕ</pattern>
+    <template>
+      <srai>Pascal</srai>
+    </template>
+  </category>
   <category>
 	<pattern>PASCALABC.NET</pattern>
 	<template> 
@@ -171,12 +187,17 @@
 </category>
   
   <category>
-	<pattern>C#</pattern>
+	<pattern>ШАРП</pattern>
 	<template>
 	  <srai>C Sharp</srai>
 	</template>
   </category>
-
+  <category>
+    <pattern>ШАРПЕ</pattern>
+    <template>
+      <srai>C Sharp</srai>
+    </template>
+  </category>
   <category>
 	<pattern>С#</pattern>
 	<template>
@@ -195,6 +216,12 @@
 	<template>
 	  <srai>C Sharp</srai>
 	</template>
+  </category>
+  <category>
+    <pattern>СИ РЕШОТКА</pattern>
+    <template>
+      <srai>C Sharp</srai>
+    </template>
   </category>
   <category>
 	<pattern>СИШАРП</pattern>
@@ -369,16 +396,34 @@
 	</template>
   </category>
   <category>
+    <pattern>ПИТОНЕ</pattern>
+    <template>
+      <srai>ПИТОН</srai>
+    </template>
+  </category>
+  <category>
 	<pattern>ПАЙТОН</pattern>
 	<template>
 	  <srai>ПИТОН</srai>
 	</template>
   </category>
   <category>
+    <pattern>ПАЙТОНЕ</pattern>
+    <template>
+      <srai>ПИТОН</srai>
+    </template>
+  </category>
+  <category>
 	<pattern>ПУТХОН</pattern>
 	<template>
 	  <srai>ПИТОН</srai>
 	</template>
+  </category>
+  <category>
+    <pattern>ПУТХОНЕ</pattern>
+    <template>
+      <srai>ПИТОН</srai>
+    </template>
   </category>
   <category>
 	<pattern>PYTHON</pattern>
@@ -476,8 +521,13 @@
 	<template>
 	  <srai>РУБИ</srai>
 	</template>
-  </category> 
-
+  </category>
+  <category>
+    <pattern>РУБЯХ</pattern>
+    <template>
+      <srai>РУБИ</srai>
+    </template>
+  </category>
   <category>
 	<pattern>ФАКТЫ РУБИ</pattern>
 	<template>
@@ -617,6 +667,12 @@
 	<template>
 	  <srai>JAVA</srai>
 	</template>
+  </category>
+  <category>
+    <pattern>ДЖАВАЕ</pattern>
+    <template>
+      <srai>JAVA</srai>
+    </template>
   </category>
   <category>
 	<pattern>ДЖАВА</pattern>
@@ -768,7 +824,12 @@
 	  <srai>GO</srai>
 	</template>
   </category>
-
+  <category>
+    <pattern>ГОЛАНГЕ</pattern>
+    <template>
+      <srai>GO</srai>
+    </template>
+  </category>
   <category>
 	<pattern>ФАКТЫ GO</pattern>
 	<template>
@@ -818,6 +879,12 @@
 	</template>
   </category>
   <category>
+    <pattern>ХАСКЕЛЕ</pattern>
+    <template>
+      <srai>HASKELL</srai>
+    </template>
+  </category>
+  <category>
 	<pattern>ФАКТЫ HASKELL</pattern>
 	<template>
 	  <random>
@@ -856,6 +923,14 @@
 		<srai><star/></srai>
 	</template>
 </category>
+  <category>
+    <pattern>ЧТО ЗНАЕШЬ О *</pattern>
+    <template>
+      <srai>
+        <star/>
+      </srai>
+    </template>
+  </category>
 
 <category>
 	<pattern>МОЖНО ПОДРОБНЕЕ О *</pattern>
@@ -1048,7 +1123,7 @@
 	</template>
 </category>
 
-<!-- ВОПРОСЫ ОБ ИНФОРМАЦИИ ПО РАСПОЗНАННОМУ ОБРАЗУ -->
+<!--ЭМБЛЕМЫ -->
 
 <category>
 	<pattern>ПОДРОБНЕЕ</pattern>
@@ -1154,7 +1229,12 @@
 		<srai>ПОДРОБНЕЕ</srai>
 	</template>
 </category>
-
+  <category>
+    <pattern>ЧТО МОЖЕШЬ РАССКАЗАТЬ ОБ ЭТОМ</pattern>
+    <template>
+      <srai>ПОДРОБНЕЕ</srai>
+    </template>
+  </category>
 <!-- ФАКТЫ ПО РАСПОЗНАННОВАНИЮ -->
 
 <category>
@@ -1600,9 +1680,9 @@
 		<template>
 			<random>
 								<li>Добро пожаловать в нашу таверну, проходи распологайся</li>
-				<li>Здравствуй, <get name='userName'/>!</li>
-				<li>Привет, <get name='userName'/>!</li>
-				<li>Рад тебя видеть, <get name='userName'/>!</li>
+								<li>Здравствуй, <get name='userName'/>!</li>
+								<li>Привет, <get name='userName'/>!</li>
+								<li>Рад тебя видеть, <get name='userName'/>!</li>
 								<li>Приветствую, <get name='userName'/>!</li> 
 								<li>Добрый день!</li>
 								<li>Кого я вижу, проходи распологайся!</li>
@@ -1745,8 +1825,8 @@
 				<li>Всё хорошо. А как у тебя дела?</li>
 				<li>Да что там я, ты то как?</li> 
 				<li>У меня всё замечательно.</li>
-								<li>Хорошо, а у тебя?</li> 
-								<li>Усталь, а у тебя то как?</li>
+				<li>Хорошо, а у тебя?</li> 
+				<li>Усталь, а у тебя то как?</li>
 			</random>
 		</template>
 </category>
@@ -1831,7 +1911,7 @@
 			<li>Славненько</li>
 			<li>Ну и отлично</li>
 			<li>Отлично</li> 
-	  <li>Замечательно!</li>
+			<li>Замечательно!</li>
 			<li>Супер!</li>
 			<li>Прекрасно</li> 
 		</random>
